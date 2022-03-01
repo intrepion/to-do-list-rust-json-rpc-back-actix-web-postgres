@@ -6,10 +6,10 @@ mod tests {
 
         #[actix_web::test]
         async fn return_ok() {
-            let _app =
+            let app =
                 test::init_service(App::new().wrap(middleware::Logger::default()).service(api))
                     .await;
-            let _req = test::TestRequest::post()
+            let req = test::TestRequest::post()
                 .uri("/api")
                 .set_json(JsonRpc2Point0Request {
                     id: Some("1".to_owned()),
@@ -17,6 +17,7 @@ mod tests {
                     params: None,
                 })
                 .to_request();
+            let _resp: JsonRpc2Point0Response = test::call_and_read_body_json(&mut app, req).await;
         }
     }
 }
