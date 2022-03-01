@@ -1,5 +1,5 @@
 use actix_web::{App, HttpServer};
-use to_do_list_json_rpc_back_actix_web_postgres::api;
+use to_do_list_json_rpc_back_actix_web_postgres::api::api;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
