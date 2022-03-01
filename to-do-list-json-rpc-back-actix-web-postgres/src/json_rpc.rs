@@ -1,3 +1,17 @@
+#[cfg(test)]
+mod tests {
+    mod json_rpc_error {
+        mod default_should {
+            #[test]
+            fn return_new_error() {
+                let _expected =
+                    r#"{"json_rpc":{"code":1,"message":"This is the default error message."}}"#;
+                let actual = JsonRpcError::default().to_string();
+            }
+        }
+    }
+}
+
 use serde::{Deserialize, Serialize};
 
 #[derive(Deserialize, Serialize)]
