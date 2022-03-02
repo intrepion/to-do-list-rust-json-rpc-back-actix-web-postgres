@@ -34,7 +34,7 @@ pub struct Code(i64);
 
 impl Code {
     pub fn default() -> Self {
-        Code(0)
+        Self::new(0)
     }
 
     pub fn new(code: i64) -> Self {
