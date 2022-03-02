@@ -6,8 +6,10 @@ mod tests {
 
             #[test]
             fn return_new_code() {
-                let _expected = r#"{0}"#;
-                let _actual = serde_json::to_string(&Code::default()).unwrap();
+                let expected = r#"{0}"#;
+                let actual = serde_json::to_string(&Code::default()).unwrap();
+
+                assert_eq!(actual, expected);
             }
         }
     }
