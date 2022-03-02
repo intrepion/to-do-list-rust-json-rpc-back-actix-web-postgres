@@ -1,14 +1,14 @@
 #[cfg(test)]
 mod tests {
-    mod json_rpc_error {
+    mod error {
         mod default_should {
-            use super::super::super::JsonRpcError;
+            use super::super::super::Error;
             use serde_json;
 
             #[test]
             fn return_new_error() {
-                let expected = r#"{"code":1,"message":"This is the default error message."}"#;
-                let actual = serde_json::to_string(&JsonRpcError::default()).unwrap();
+                let expected = r#"{"code":0,"message":"This is the default error message."}"#;
+                let actual = serde_json::to_string(&Error::default()).unwrap();
 
                 assert_eq!(expected, actual);
             }
@@ -19,17 +19,17 @@ mod tests {
 use serde::{Deserialize, Serialize};
 
 #[derive(Deserialize, Serialize)]
-pub struct JsonRpcError {
+pub struct Error {
     code: i64,
     #[serde(skip_serializing_if = "Option::is_none")]
     data: Option<serde_json::Value>,
     message: String,
 }
 
-impl JsonRpcError {
+impl Error {
     pub fn default() -> Self {
-        JsonRpcError {
-            code: 1,
+        Error {
+            code: 0,
             data: None,
             message: "This is the default error message.".to_owned(),
         }
@@ -46,7 +46,7 @@ pub struct JsonRpcRequest {
 
 #[derive(Deserialize, Serialize)]
 pub struct JsonRpcResponse {
-    pub error: Option<JsonRpcError>,
+    pub error: Option<Error>,
     pub id: Option<String>,
     pub json_rpc: String,
     pub result: Option<serde_json::Value>,
