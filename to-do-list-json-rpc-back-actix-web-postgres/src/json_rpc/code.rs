@@ -14,10 +14,12 @@ mod tests {
         }
 
         mod new_should {
+            use super::super::super::Code;
+
             #[test]
             fn return_new_code_given_valid_code() {
-                let expected = r#"1"#;
-                let actual = serde_json::to_string(&Code::new(1)).unwrap();
+                let _expected = r#"1"#;
+                let _actual = serde_json::to_string(&Code::new(1)).unwrap();
             }
         }
     }
@@ -30,6 +32,10 @@ pub struct Code(i64);
 
 impl Code {
     pub fn default() -> Self {
+        Code(0)
+    }
+
+    pub fn new(_code: i64) -> Self {
         Code(0)
     }
 }
