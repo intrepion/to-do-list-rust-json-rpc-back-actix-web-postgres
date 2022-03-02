@@ -18,8 +18,10 @@ mod tests {
 
             #[test]
             fn return_new_code_given_valid_code() {
-                let _expected = r#"1"#;
-                let _actual = serde_json::to_string(&Code::new(1)).unwrap();
+                let expected = r#"1"#;
+                let actual = serde_json::to_string(&Code::new(1)).unwrap();
+
+                assert_eq!(actual, expected);
             }
         }
     }
