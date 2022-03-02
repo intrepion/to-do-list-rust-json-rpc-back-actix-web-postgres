@@ -16,11 +16,12 @@ mod tests {
     }
 }
 
+use super::code::Code;
 use serde::{Deserialize, Serialize};
 
 #[derive(Deserialize, Serialize)]
 pub struct ErrorDetail {
-    code: i64,
+    code: Code,
     #[serde(skip_serializing_if = "Option::is_none")]
     data: Option<serde_json::Value>,
     message: String,
@@ -29,7 +30,7 @@ pub struct ErrorDetail {
 impl ErrorDetail {
     pub fn default() -> Self {
         ErrorDetail {
-            code: 0,
+            code: Code::default(),
             data: None,
             message: "This is the default error message.".to_owned(),
         }

@@ -37,7 +37,7 @@ impl Code {
         Code(0)
     }
 
-    pub fn new(_code: i64) -> Self {
-        Code(0)
+    pub fn new(code: i64) -> Self {
+        Code(code)
     }
 }
