@@ -1,6 +1,7 @@
 pub mod code;
 pub mod error;
 pub mod error_detail;
+pub mod json_rpc;
 use serde::{Deserialize, Serialize};
 
 #[derive(Deserialize, Serialize)]
