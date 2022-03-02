@@ -7,7 +7,7 @@ mod tests {
 
             #[test]
             fn return_new_error() {
-                let expected = r#"{"error":{"code":0,"message":"This is the default error message."},"id":"1","json_rpc":"2.0"}"#;
+                let expected = r#"{"code":0,"message":"This is the default error message."}"#;
                 let actual = serde_json::to_string(&ErrorDetail::default()).unwrap();
 
                 assert_eq!(expected, actual);
