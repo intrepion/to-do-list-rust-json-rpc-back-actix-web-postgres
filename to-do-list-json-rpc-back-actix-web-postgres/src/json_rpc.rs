@@ -20,15 +20,32 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Deserialize, Serialize)]
 pub struct Error {
+    error: ErrorDetail,
+    id: Option<String>,
+    json_rpc: String,
+}
+
+impl Error {
+    pub fn default() -> Self {
+        Error {
+            error: ErrorDetail::default(),
+            id: Some("1".to_owned()),
+            json_rpc: "2.0".to_owned(),
+        }
+    }
+}
+
+#[derive(Deserialize, Serialize)]
+pub struct ErrorDetail {
     code: i64,
     #[serde(skip_serializing_if = "Option::is_none")]
     data: Option<serde_json::Value>,
     message: String,
 }
 
-impl Error {
+impl ErrorDetail {
     pub fn default() -> Self {
-        Error {
+        ErrorDetail {
             code: 0,
             data: None,
             message: "This is the default error message.".to_owned(),
