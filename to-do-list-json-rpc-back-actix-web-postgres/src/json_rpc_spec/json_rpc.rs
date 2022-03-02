@@ -6,8 +6,10 @@ mod tests {
 
             #[test]
             fn return_new_json_rpc() {
-                let _expected = r#""2.0""#;
-                let _actual = serde_json::to_string(&JsonRpc::default()).unwrap();
+                let expected = r#""2.0""#;
+                let actual = serde_json::to_string(&JsonRpc::default()).unwrap();
+
+                assert_eq!(actual, expected);
             }
         }
 
@@ -16,8 +18,10 @@ mod tests {
 
             #[test]
             fn return_new_json_rpc_given_valid_json_rpc() {
-                let _expected = r#""2.0""#;
-                let _actual = serde_json::to_string(&JsonRpc::new()).unwrap();
+                let expected = r#""2.0""#;
+                let actual = serde_json::to_string(&JsonRpc::new()).unwrap();
+
+                assert_eq!(actual, expected);
             }
         }
     }
