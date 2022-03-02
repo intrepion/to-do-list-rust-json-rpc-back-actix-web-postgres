@@ -1,3 +1,4 @@
+pub mod code;
 pub mod error;
 pub mod error_detail;
 use serde::{Deserialize, Serialize};
