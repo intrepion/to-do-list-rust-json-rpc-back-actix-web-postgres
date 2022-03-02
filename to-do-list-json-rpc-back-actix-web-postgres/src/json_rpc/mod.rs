@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod tests {
-    mod error {
+    mod test_error {
         mod default_should {
             use super::super::super::Error;
             use serde_json;
