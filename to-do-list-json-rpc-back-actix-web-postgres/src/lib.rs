@@ -1,2 +1,2 @@
 pub mod api;
-pub mod json_rpc;
+pub mod json_rpc_spec;
