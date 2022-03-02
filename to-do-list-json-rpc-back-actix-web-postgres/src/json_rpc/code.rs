@@ -12,6 +12,14 @@ mod tests {
                 assert_eq!(actual, expected);
             }
         }
+
+        mod new_should {
+            #[test]
+            fn return_new_code_given_valid_code() {
+                let expected = r#"1"#;
+                let actual = serde_json::to_string(&Code::new(1)).unwrap();
+            }
+        }
     }
 }
 
