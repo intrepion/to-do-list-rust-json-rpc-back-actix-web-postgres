@@ -6,7 +6,7 @@ mod tests {
 
             #[test]
             fn return_new_code() {
-                let expected = r#"{0}"#;
+                let expected = r#"0"#;
                 let actual = serde_json::to_string(&Code::default()).unwrap();
 
                 assert_eq!(actual, expected);
