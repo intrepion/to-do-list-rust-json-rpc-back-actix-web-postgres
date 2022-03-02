@@ -29,7 +29,13 @@ use serde::{Deserialize, Serialize};
 pub struct JsonRpc(String);
 
 impl JsonRpc {
-    pub fn default() -> Self {
+    pub fn new() -> Self {
         JsonRpc("2.0".to_owned())
+    }
+}
+
+impl Default for JsonRpc {
+    fn default() -> Self {
+        JsonRpc::new()
     }
 }
